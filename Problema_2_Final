@@ -1,0 +1,55 @@
+print("Mi nombre es Diego Fernando Casos Ulcue")
+print("Mi número de documento es 1062332513")   
+print("Soy estudiante de ingeniería de sistemas de la universidad nacional abierta y a distancia UNAD")
+print("Este es el código del problema 2 del trabajo final de fundamentos de programación")
+
+#Menu del restaurante represntada en una matriz que tenga nombre, categoria y precio base de cada producto
+# Matriz del menú del restaurante
+
+menu = [
+    ["Hamburguesa", "Comida Rápida", 18000],
+    ["Pizza", "Comida Rápida", 22000],
+    ["Ensalada", "Saludable", 15000],
+    ["Jugo Natural", "Bebidas", 8000],
+    ["Carne Asada", "Plato Fuerte", 30000],
+    ["Pasta", "Plato Fuerte", 25000]
+]
+
+
+# Función para calcular el precio final
+
+def calcular_precio_final(categoria, precio_base, categoria_objetivo, umbral):
+    descuento = 0.15
+    
+    if categoria == categoria_objetivo and precio_base > umbral:
+        precio_final = precio_base * (1 - descuento)
+    else:
+        precio_final = precio_base
+    
+    return precio_final
+
+# Parámetros de categoria objetivo y umbral de la promoción
+
+categoria_objetivo = "Plato Fuerte"
+umbral_precio = 20000
+
+# Salida del menú con precios finales aplicando la promoción
+print("MENÚ CON PROMOCIÓN APLICADA\n")
+
+for producto in menu:
+    nombre = producto[0]
+    categoria = producto[1]
+    precio_base = producto[2]
+
+    precio_final = calcular_precio_final(
+        categoria,
+        precio_base,
+        categoria_objetivo,
+        umbral_precio
+    )
+
+    print(f"Producto: {nombre}")
+    print(f"Categoría: {categoria}")
+    print(f"Precio Base: ${precio_base}")
+    print(f"Precio Final: ${int(precio_final)}")
+    print("-" * 30)
